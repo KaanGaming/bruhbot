@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.5.1"
-  }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KaanGaming/bruhbot.git"
