@@ -1,0 +1,17 @@
+{
+  "name": "bruhbot",
+  "version": "1.0.0",
+  "description": "Bruh :moyai:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Hello there old chum, I'm gnot a gnelf, I'm gnot a gnoblin, I'm a gnome, and you've been GNOMED\\\""
+  },
+  "keywords": [
+    "moyai"
+  ],
+  "author": "KaanGaming",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
