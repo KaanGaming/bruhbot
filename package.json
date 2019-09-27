@@ -4,7 +4,8 @@
   "description": "Bruh :moyai:",
   "main": "index.js",
   "scripts": {
-    "test": "echo \\\"Hello there old chum, I'm gnot a gnelf, I'm gnot a gnoblin, I'm a gnome, and you've been GNOMED\\\""
+    "test": "echo bruh"
+    "start": "node index.js"
   },
   "keywords": [
     "moyai"
