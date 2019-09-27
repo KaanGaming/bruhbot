@@ -4,7 +4,7 @@
   "description": "Bruh :moyai:",
   "main": "index.js",
   "scripts": {
-    "test": "echo bruh"
+    "test": "echo bruh",
     "start": "node index.js"
   },
   "keywords": [
