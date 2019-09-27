@@ -1,5 +1,5 @@
 module.exports = {
     execute(message, client, args) {
-        message.channel.send('Check our COMMANDS.md in https://www.github.com/KaanGaming/bruhbot/commands/COMMANDS.md');
-	},
+        message.channel.send('Check our COMMANDS.md in https://github.com/KaanGaming/bruhbot/blob/master/commands/COMMANDS.md');
+    },
 };
