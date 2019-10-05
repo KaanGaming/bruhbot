@@ -11,8 +11,9 @@
     "moyai"
   ],
   "author": "KaanGaming",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+	"mongodb": "^3.3.2"
   }
 }

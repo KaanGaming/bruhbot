@@ -4,12 +4,21 @@
 // It's open source, we don't want our bot to get controlled by someone else!
 // That's bad magic, so we use good magic!
 const TOKEN_ID = process.env.tokenid;
+const URI = process.env.mongodburi;
+
+const client = new MongoClient(URI, { useNewUrlParser: true });
 
 const prefix = "b!";
 
 const fs = require('fs');
+const MongoClient = require('mongodb').MongoClient;
 const Discord = require('discord.js');
 const client = new Discord.Client();
+
+MongoClient.connect(URI, function (err, code) {
+    const db = code.db();
+    db.createCollection("usercol");
+});
 
 const cmdlist = require('./cmdlist.json');
 
@@ -37,6 +46,31 @@ client.on('message', (message) => {
     const args = message.content.slice(prefix.length).split(" ");
     const command = args.shift().toLowerCase();
     const id = cmdlist.arraylmao.indexOf(command);
+
+	MongoClient.connect(URI, function (err, code) {
+        if (err != null) { console.log(err); return; }
+        const db = code.db();
+        db.collections().then((value) => {
+            const usercol = value[0];
+            if (!usercol.findOne({ id: message.author.id })) {
+                var user = { id: message.author.id, exp: 1, nextexp: 250, level: 0 }
+                usercol.insert(user);
+            }
+            else {
+                usercol.findOne({ id: message.author.id }, function (err, res) {
+                    var newuser = res;
+                    newuser.exp++;
+                    if (newuser.exp > (newuser.nextexp - 1)) {
+                        newuser.level++;
+                        newuser.nextexp = Math.floor(newuser.nextexp * 1.25);
+                        newuser.exp = 0;
+                        message.channel.send("<@" + message.author.id + "> **CONGRATULATIONS!** You leveled up to " + newuser.level + "!");
+                    }
+                    usercol.findOneAndReplace({ id: message.author.id }, newuser);
+                });
+            }
+        });
+    });
 
     if (id < 0) {
         return;
