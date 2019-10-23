@@ -1,5 +1,5 @@
 module.exports = {
-	execute(message, client, args) {
+    execute(message, client, args) {
         message.channel.send(':moyai:');
 	},
 };
